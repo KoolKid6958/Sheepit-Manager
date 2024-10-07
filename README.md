@@ -1,7 +1,9 @@
 # SheepIt Manager
 
 **Overview:**  
-SheepIt Manager helps you efficiently manage multiple SheepIt clients.
+SheepIt Manager helps you efficiently manage multiple SheepIt clients. 
+
+Just a note, I did not abandon development, im just rewriting most of it to work way better, not use tk and some other stuff.
 
 **Note:** This project is independent and not affiliated with or endorsed by the SheepIt development team.
 
