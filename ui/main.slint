@@ -1,0 +1,169 @@
+import { Devices } from "pages/devices.slint";
+import { Main } from "pages/main.slint";
+import { Logs } from "pages/logs.slint";
+import { Config } from "pages/config.slint";
+global values {
+    in-out property <length> side-button-radius: 20px;
+    in-out property <length> side-button-width: 4px;
+    in-out property <int> activepage: 0; //0 main, 1 devices, 2 logs, 3 config
+}
+
+component sidebutton inherits TouchArea {
+    button := Rectangle {
+        min-height: 15px;
+        preferred-height: 40px;
+        background: #252525;
+        border-width: values.side-button-width;
+        border-color: #494949;
+        border-radius: values.side-button-radius;
+        animate background { duration: 50ms; }
+        animate border-radius {
+            duration: 300ms;
+            easing: ease-out-back;
+        }
+        animate border-width {
+            duration: 300ms;
+            easing: ease-out-back;
+        }
+    }
+
+    states [
+        pressed when root.pressed: {
+            button.background: #3b3b3b;
+        }
+        hover when root.has-hover: {
+            button.background: #2b2b2b;
+        }
+    ]
+}
+
+component universal-sidebar inherits VerticalLayout {
+    property <length> vl-width: 40px;
+    property <bool> isclicked: false;
+    spacing: 5px;
+    width: vl-width;
+    alignment: start;
+    max-height: 30px;
+    animate width {
+        duration: 300ms;
+        easing: ease-out-back;
+    }
+    // Menu button
+    sidebutton {
+        Text {
+            text: "☰";
+            font-size: 20px;
+            font-weight: 700;
+            color: #ffffff;
+            y: +5px;
+        }
+
+        clicked => {
+            if (isclicked) {
+                vl-width = 40px;
+                values.side-button-radius = 20px;
+                values.side-button-width = 4px;
+                isclicked = false
+            } else {
+                vl-width = 160px;
+                values.side-button-radius = 5px;
+                values.side-button-width = 2px;
+                isclicked = true
+            }
+        }
+    }
+
+    //pages should be main, devices, logs, config, util, and network
+    sidebutton {
+        Text {
+            //text: "Main";
+        }
+
+        img := Image {
+            source: @image-url("./icons/home.png");
+            width: 18px;
+            height: 18px;
+        }
+
+        clicked => {
+            values.activepage = 0
+        }
+    }
+
+    sidebutton {
+        Text {
+            //text: "Devices";
+        }
+
+        Image {
+            source: @image-url("./icons/cpu.png");
+            width: 18px;
+            height: 18px;
+        }
+
+        clicked => {
+            values.activepage = 1
+        }
+    }
+
+    sidebutton {
+        Text {
+            //text: "Logs";
+        }
+
+        Image {
+            source: @image-url("./icons/logs.png");
+            width: 19px;
+            height: 19px;
+        }
+         clicked => {
+            values.activepage = 2
+        }
+    }
+
+    sidebutton {
+        Text {
+            //text: "Config";
+        }
+
+        Image {
+            source: @image-url("./icons/config.png");
+            width: 18px;
+            height: 18px;
+        }
+         clicked => {
+            values.activepage = 3
+        }
+    }
+}
+
+export component MainWindow inherits Window {
+    callback cpus();
+    icon: @image-url("icons/Sheepit.png");
+    title: "Sheepit Manager";
+    background: #1d1d1d;
+    default-font-size: 15px;
+    preferred-height: 700px;
+    preferred-width: 450px;
+    universal-sidebar {
+        x: 10px;
+        y: 15px;
+        height: 350px;
+    }
+
+    Main {
+        visible: values.activepage == 0;
+    }
+
+    Devices {
+        visible: values.activepage == 1;
+    }
+
+    Logs {
+        visible: values.activepage == 2;
+    }
+
+    Config {
+        visible: values.activepage == 3;
+    }
+}

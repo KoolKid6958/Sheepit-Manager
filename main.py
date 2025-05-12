@@ -13,6 +13,14 @@ import re
 from datetime import datetime, timedelta
 import asyncio
 import socket
+import slint
+class MainWindow(slint.loader.ui.main.MainWindow): # starting to add slint logic, will prob take a while
+    @slint.callback
+    def cpus():
+        cpu_threadss = psutil.cpu_count(logical=True)
+        return cpu_threadss
+    pass
+
 
 class ComputeDevice:
     def __init__(self, name, gpu_id):
@@ -1467,8 +1475,13 @@ class RenderFarmBot:
         ttk.Button(button_frame, text="Quit All Clients After Current Frames And Close Manager", command=self.quit_after_frames).pack(fill="x", padx=10, pady=5)
         ttk.Button(button_frame, text="Quit All Clients Now And Close Manager", command=self.quit_now).pack(fill="x", padx=10, pady=5)
         ttk.Button(button_frame, text="Cancel", command=popup.destroy).pack(fill="x", padx=10, pady=5)
+        
+def run_slint():
+    main_window = MainWindow()
+    main_window.show()
+    main_window.run()
 
-def main():
+def run_tk():
     root = tk.Tk()
     root.geometry("700x1054")
     root.config(bg="#26242f")
@@ -1476,5 +1489,12 @@ def main():
     root.protocol("WM_DELETE_WINDOW", app.on_close)
     root.mainloop()
 
+def main():
+    gui = "t"
+    if gui == "tk":
+        run_tk()
+    else:
+        run_slint()
+    
 if __name__ == "__main__":
     main()
