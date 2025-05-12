@@ -1,0 +1,47 @@
+import { Devices } from "pages/devices.slint";
+import { Main } from "pages/main.slint";
+import { Logs } from "pages/logs.slint";
+import { Config } from "pages/config.slint";
+import { Sidebar} from "blocks/sidebar.slint";
+import { values } from "blocks/values.slint";
+
+
+export component MainWindow inherits Window {
+    callback cpus();
+    icon: @image-url("icons/Sheepit.png");
+    title: "Sheepit Manager";
+    background: #1d1d1d;
+    default-font-size: 15px;
+    preferred-height: 700px;
+    preferred-width: 450px;
+    TouchArea {
+        clicked => {
+            values.vl-width = 40px;
+            values.side-button-radius = 20px;
+            values.side-button-width = 4px;
+            values.isclicked = false
+        }
+    }
+
+    Sidebar {
+        x: 10px;
+        y: 15px;
+        height: 350px;
+    }
+
+    Main {
+        visible: values.activepage == 0;
+    }
+
+    Devices {
+        visible: values.activepage == 1;
+    }
+
+    Logs {
+        visible: values.activepage == 2;
+    }
+
+    Config {
+        visible: values.activepage == 3;
+    }
+}

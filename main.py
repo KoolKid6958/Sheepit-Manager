@@ -14,7 +14,7 @@ from datetime import datetime, timedelta
 import asyncio
 import socket
 import slint
-class MainWindow(slint.loader.ui.main.MainWindow): # starting to add slint logic, will prob take a while
+class MainWindow(slint.loader.ui.app_window.MainWindow): # starting to add slint logic, will prob take a while
     @slint.callback
     def cpus():
         cpu_threadss = psutil.cpu_count(logical=True)
