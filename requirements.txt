@@ -1,0 +1,4 @@
+slint
+discord.py
+psutil
+requests  
