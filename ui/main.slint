@@ -73,16 +73,19 @@ component universal-sidebar inherits VerticalLayout {
         }
     }
 
-    //pages should be main, devices, logs, config, util, and network
+    //pages should be main, devices, logs, and config
     sidebutton {
         Text {
-            //text: "Main";
+            visible: isclicked;
+            text: "Main";
+            x: + 45px;
         }
 
         img := Image {
             source: @image-url("./icons/home.png");
             width: 18px;
             height: 18px;
+            x: 11px;
         }
 
         clicked => {
@@ -92,13 +95,16 @@ component universal-sidebar inherits VerticalLayout {
 
     sidebutton {
         Text {
-            //text: "Devices";
+            visible: isclicked;
+            text: "Devices";
+            x: + 45px;
         }
 
         Image {
             source: @image-url("./icons/cpu.png");
             width: 18px;
             height: 18px;
+            x: 11px;
         }
 
         clicked => {
@@ -108,15 +114,19 @@ component universal-sidebar inherits VerticalLayout {
 
     sidebutton {
         Text {
-            //text: "Logs";
+            visible: isclicked;
+            text: "Logs";
+            x: + 45px;
         }
 
         Image {
             source: @image-url("./icons/logs.png");
             width: 19px;
             height: 19px;
+            x: 11px;
         }
-         clicked => {
+
+        clicked => {
             values.activepage = 2
         }
     }
@@ -126,12 +136,20 @@ component universal-sidebar inherits VerticalLayout {
             //text: "Config";
         }
 
+        Text {
+            visible: isclicked;
+            text: "Config";
+            x: + 45px;
+        }
+
         Image {
             source: @image-url("./icons/config.png");
             width: 18px;
             height: 18px;
+            x: 11px;
         }
-         clicked => {
+
+        clicked => {
             values.activepage = 3
         }
     }
