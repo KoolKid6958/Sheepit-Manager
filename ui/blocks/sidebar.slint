@@ -41,13 +41,12 @@ component sidebar-layout inherits VerticalLayout {
     }
     // Menu button
     sidebutton {
-        Text {
-            text: "☰";
-            font-size: 20px;
-            font-weight: 700;
-            color: #ffffff;
-            y: +5px;
-            x: 11px;
+
+        Image {
+            source: @image-url("../icons/menu.svg");
+            width: 16px;
+            height: 18px;
+            x: 12px;
         }
 
         clicked => {
