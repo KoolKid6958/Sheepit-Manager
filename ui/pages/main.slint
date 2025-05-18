@@ -1,9 +1,97 @@
-export component Main {
+component DeviceWidget {
+    Text {
+        text: "";
+    }
+}
+
+component DeviceLayout inherits VerticalLayout { }
+
+component Stats-text inherits Text {
+    x: 15px;
+    font-size: 15px;
+}
+
+component Stats-underline {
+    Rectangle {
+        border-radius: 20px;
+        width: 70px;
+        height: 2px;
+        x: + 15px;
+        background: #3f3f3f;
+    }
+}
+
+component StatsWidget inherits Rectangle {
+    property <string> Time-elapsed: "50 years";
+    property <string> Total-points: "92,157,643";
+    property <string> Total-frames: "70,403";
+    property <string> Total-download: "420GB";
+    property <string> Total-upload: "69GB";
+    background: #1a1919;
+    width: 80%;
+    height: 235px;
+    border-radius: 5px;
+    border-color: #4d4d4d;
+    border-width: 2px;
+    Rectangle {
+        x: 0px + parent.width - self.width - 10px;
+        y: 10px;
+        border-color: #414141;
+        width: 90px;
+        height: 25px;
+        border-width: 2px;
+        border-radius: 5px;
         Text {
-        text: "Sheepit Manager!";
-        color: white;
-        font-size: 30px;
-        x: root.width / 2 - (self.width / 2);
-        y: root.height - root.height + 30px;
+            text: "General Info";
+        }
+    }
+
+    VerticalLayout {
+        y: 10px;
+        alignment: start;
+        Stats-text {
+            text: "Time Elapsed: \{Time-elapsed}";
+        }
+
+        Stats-underline { }
+
+        Stats-text {
+            text: "Total Points: \{Total-points}";
+        }
+
+        Stats-underline { }
+
+        Stats-text {
+            text: "Total Frames: \{Total-frames}";
+        }
+
+        Stats-underline { }
+
+        Stats-text {
+            text: "Total Download: \{Total-download}";
+        }
+
+        Stats-underline { }
+
+        Stats-text {
+            text: "Total Upload: \{Total-upload}";
+        }
+
+        Stats-underline { }
+    }
+}
+
+export component Main {
+    DeviceLayout { }
+
+    Text {
+        property <string> windowheight: root.height / 1px;
+        property <string> windowwidth: root.width / 1px;
+        text: "height: \{windowheight}\n width: \{windowwidth}";
+    }
+
+    StatsWidget {
+        x: 70px;
+        y: 15px;
     }
 }

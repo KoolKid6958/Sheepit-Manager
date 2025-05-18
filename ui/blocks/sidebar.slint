@@ -29,11 +29,12 @@ component sidebutton inherits TouchArea {
     ]
 }
 
-export component Sidebar inherits VerticalLayout {
+component sidebar-layout inherits VerticalLayout {
     spacing: 5px;
     width: values.vl-width;
     alignment: start;
     max-height: 30px;
+    y: + 10px;
     animate width {
         duration: 300ms;
         easing: ease-out-back;
@@ -53,7 +54,7 @@ export component Sidebar inherits VerticalLayout {
             if (values.isclicked) {
                 values.vl-width = 40px;
                 values.side-button-radius = 20px;
-                values.side-button-width = 4px;
+                values.side-button-width = 3px;
                 values.isclicked = false
             } else {
                 values.vl-width = 160px;
@@ -82,7 +83,7 @@ export component Sidebar inherits VerticalLayout {
             if (values.isclicked) {
                 values.vl-width = 40px;
                 values.side-button-radius = 20px;
-                values.side-button-width = 4px;
+                values.side-button-width = 3px;
                 values.isclicked = false;
             }
             values.activepage = 0;
@@ -107,7 +108,7 @@ export component Sidebar inherits VerticalLayout {
             if (values.isclicked) {
                 values.vl-width = 40px;
                 values.side-button-radius = 20px;
-                values.side-button-width = 4px;
+                values.side-button-width = 3px;
                 values.isclicked = false;
             }
             values.activepage = 1
@@ -132,7 +133,7 @@ export component Sidebar inherits VerticalLayout {
             if (values.isclicked) {
                 values.vl-width = 40px;
                 values.side-button-radius = 20px;
-                values.side-button-width = 4px;
+                values.side-button-width = 3px;
                 values.isclicked = false;
             }
             values.activepage = 2
@@ -157,10 +158,28 @@ export component Sidebar inherits VerticalLayout {
             if (values.isclicked) {
                 values.vl-width = 40px;
                 values.side-button-radius = 20px;
-                values.side-button-width = 4px;
+                values.side-button-width = 3px;
                 values.isclicked = false;
             }
             values.activepage = 3
         }
+    }
+}
+
+export component Sidebar inherits Rectangle {
+    background: #222222;
+    sidebar-layout { }
+
+    width: values.vl-width + 10px;
+    border-radius: values.side-button-radius + 10px;
+    border-color: #303030;
+    border-width: 1px;
+    animate width {
+        duration: 300ms;
+        easing: ease-out-back;
+    }
+    animate border-radius {
+        duration: 300ms;
+        easing: ease-out-back;
     }
 }
