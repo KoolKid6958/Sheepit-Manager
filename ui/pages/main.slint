@@ -1,24 +1,291 @@
-component DeviceWidget {
-    Text {
-        text: "";
-    }
+import { Theme } from "../blocks/themes.slint";
+component DeviceWidget inherits Rectangle {
+    background: Theme.background-color;
+    height: 40px;
+    border-color: Theme.border-color;
+    border-radius: 20px;
+    border-width: 2px;
 }
 
-component DeviceLayout inherits VerticalLayout { }
+component DeviceLayout inherits VerticalLayout {
+    y: 255px;
+    spacing: 5px;
+    DeviceWidget {
+        height: 25px;
+        border-radius: 20px;
+        width: 90px;
+        Text {
+            text: "Local Clients";
+        }
+    }
+
+    DeviceWidget {
+        background: #2e2e2e;
+        Image {
+            source: @image-url("../icons/cpu.png");
+            colorize: Theme.icon-color;
+            width: 16px;
+            height: 18px;
+            x: 12px;
+        }
+
+        Text {
+            text: "Points: 0";
+            x: 75px;
+        }
+
+        Text {
+            text: "Project: None";
+            x: 180px;
+        }
+
+        Text {
+            text: "0%";
+            x: 310px;
+        }
+
+        Text {
+            text: "ETA: None";
+            x: 340px;
+        }
+
+        Text {
+            text: "5800x";
+            x: 35px;
+        }
+    }
+
+    DeviceWidget {
+        background: #00ff00b2;
+        Image {
+            source: @image-url("../icons/gpu.png");
+            colorize: Theme.icon-color;
+            width: 16px;
+            height: 18px;
+            x: 12px;
+        }
+
+        Text {
+            text: "Points: 899,192,542";
+            x: 75px;
+        }
+
+        Text {
+            text: "Project: VramEater9000";
+            x: 180px;
+        }
+
+        Text {
+            text: "1%";
+            x: 310px;
+        }
+
+        Text {
+            text: "ETA: 2B Years";
+            x: 340px;
+        }
+
+        Text {
+            text: "3080 Ti";
+            x: 35px;
+        }
+    }
+
+    DeviceWidget {
+        background: #eeff00a6;
+        Image {
+            source: @image-url("../icons/gpu.png");
+            colorize: Theme.icon-color;
+            width: 16px;
+            height: 18px;
+            x: 12px;
+        }
+
+        Text {
+            text: "Points: 0";
+            x: 75px;
+        }
+
+
+        Text {
+            text: "Project: None";
+            x: 180px;
+        }
+
+        Text {
+            text: "0%";
+            x: 310px;
+        }
+
+        Text {
+            text: "ETA: None";
+            x: 340px;
+        }
+
+        Text {
+            text: "2060";
+            x: 35px;
+        }
+    }
+
+    DeviceWidget {
+        height: 25px;
+        border-radius: 20px;
+        width: 110px;
+        Text {
+            text: "Network Clients";
+        }
+    }
+
+    DeviceWidget {
+        background: #2e2e2e;
+        Image {
+            source: @image-url("../icons/cpu.png");
+            colorize: Theme.icon-color;
+            width: 16px;
+            height: 18px;
+            x: 12px;
+        }
+
+        Text {
+            text: "Points: 0";
+            x: 75px;
+        }
+
+
+        Text {
+            text: "Project: None";
+            x: 180px;
+        }
+
+        Text {
+            text: "0%";
+            x: 310px;
+        }
+
+        Text {
+            text: "ETA: None";
+            x: 340px;
+        }
+
+        Text {
+            text: "1700";
+            x: 35px;
+        }
+    }
+
+    DeviceWidget {
+        background: #00ff00b2;
+        Image {
+            source: @image-url("../icons/gpu.png");
+            colorize: Theme.icon-color;
+            width: 16px;
+            height: 18px;
+            x: 12px;
+        }
+
+        Text {
+            text: "Points: 19,394,564";
+            x: 75px;
+        }
+
+        Text {
+            text: "Project: SheepitUpload";
+            x: 180px;
+        }
+
+        Text {
+            text: "91%";
+            x: 310px;
+        }
+
+        Text {
+            text: "ETA: 2s";
+            x: 340px;
+        }
+
+        Text {
+            text: "3080";
+            x: 35px;
+        }
+    }
+
+    DeviceWidget {
+        background: #00ff00b2;
+        Image {
+            source: @image-url("../icons/gpu.png");
+            colorize: Theme.icon-color;
+            width: 16px;
+            height: 18px;
+            x: 12px;
+        }
+
+        Text {
+            text: "Points: 4,120,340";
+            x: 75px;
+        }
+
+        Text {
+            text: "Project: SheepitUpload";
+            x: 180px;
+        }
+
+        Text {
+            text: "92%";
+            x: 310px;
+        }
+
+        Text {
+            text: "ETA: 7s";
+            x: 340px;
+        }
+
+        Text {
+            text: "3050";
+            x: 35px;
+        }
+    }
+
+    DeviceWidget {
+        background: #ff0000a6;
+        Image {
+            source: @image-url("../icons/gpu.png");
+            colorize: Theme.icon-color;
+            width: 16px;
+            height: 18px;
+            x: 12px;
+        }
+
+        Text {
+            text: "Points: 0";
+            x: 75px;
+        }
+
+        Text {
+            text: "Project: None";
+            x: 180px;
+        }
+
+        Text {
+            text: "0%";
+            x: 310px;
+        }
+
+        Text {
+            text: "ETA: None";
+            x: 340px;
+        }
+
+        Text {
+            text: "2070 S";
+            x: 35px;
+        }
+    }
+}
 
 component Stats-text inherits Text {
     x: 15px;
     font-size: 15px;
-}
-
-component Stats-underline {
-    Rectangle {
-        border-radius: 20px;
-        width: 70px;
-        height: 2px;
-        x: + 15px;
-        background: #3f3f3f;
-    }
 }
 
 component StatsWidget inherits Rectangle {
@@ -28,9 +295,8 @@ component StatsWidget inherits Rectangle {
     property <string> Total-download: "420GB";
     property <string> Total-upload: "69GB";
     background: #1a1919;
-    width: 80%;
-    height: 235px;
-    border-radius: 5px;
+    height: 230px;
+    border-radius: 15px;
     border-color: #4d4d4d;
     border-width: 2px;
     Rectangle {
@@ -49,49 +315,37 @@ component StatsWidget inherits Rectangle {
     VerticalLayout {
         y: 10px;
         alignment: start;
+        spacing: 2px;
         Stats-text {
             text: "Time Elapsed: \{Time-elapsed}";
         }
-
-        Stats-underline { }
 
         Stats-text {
             text: "Total Points: \{Total-points}";
         }
 
-        Stats-underline { }
-
         Stats-text {
             text: "Total Frames: \{Total-frames}";
         }
-
-        Stats-underline { }
 
         Stats-text {
             text: "Total Download: \{Total-download}";
         }
 
-        Stats-underline { }
-
         Stats-text {
             text: "Total Upload: \{Total-upload}";
         }
-
-        Stats-underline { }
     }
 }
 
 export component Main {
-    DeviceLayout { }
-
-    Text {
-        property <string> windowheight: root.height / 1px;
-        property <string> windowwidth: root.width / 1px;
-        text: "height: \{windowheight}\n width: \{windowwidth}";
+    DeviceLayout {
+        width: root.width - 20px;
     }
 
     StatsWidget {
         x: 70px;
         y: 15px;
+        width: root.width - 81px;
     }
 }

@@ -4,30 +4,30 @@ import { Logs } from "pages/logs.slint";
 import { Config } from "pages/config.slint";
 import { Sidebar} from "blocks/sidebar.slint";
 import { values } from "blocks/values.slint";
+import { Theme } from "blocks/themes.slint";
 
 
 export component MainWindow inherits Window {
     callback cpus();
     icon: @image-url("icons/Sheepit.png");
     title: "Sheepit Manager";
-    background: #1d1d1d;
+    background: Theme.background-color;
     preferred-height: 700px;
     preferred-width: 450px;
     min-height: 300px;
-    min-width: 380px;
+    min-width: 450px;
     TouchArea {
         clicked => {
             values.vl-width = 40px;
             values.side-button-radius = 20px;
             values.side-button-width = 4px;
-            values.isclicked = false
+            values.isclicked = false;
+            values.main-window-height = root.height;
         }
     }
 
     Main {
         visible: values.activepage == 0;
-        //x: 0px;
-        //y: 0px;
         width: 100%;
         height: 100%;
     }
@@ -47,6 +47,5 @@ export component MainWindow inherits Window {
     Sidebar {
         x: 10px;
         y: 10px;
-        height: 240px;
     }
 }

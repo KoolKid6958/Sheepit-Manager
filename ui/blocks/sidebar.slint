@@ -1,4 +1,5 @@
 import { values } from "values.slint";
+import { Theme } from "themes.slint";
 
 component sidebutton inherits TouchArea {
     button := Rectangle {
@@ -29,21 +30,37 @@ component sidebutton inherits TouchArea {
     ]
 }
 
+component sidebreak inherits Rectangle {
+    visible: values.isclicked;
+    background: #242424;
+    width: values.vl-width;
+    height: 18px;
+    border-radius: 1px;
+    border-width: 1px;
+    border-color: #414141;
+}
+
 component sidebar-layout inherits VerticalLayout {
     spacing: 5px;
     width: values.vl-width;
     alignment: start;
     max-height: 30px;
-    y: + 10px;
+    y: + 7px;
     animate width {
         duration: 300ms;
         easing: ease-out-back;
     }
     // Menu button
     sidebutton {
+        Text {
+            visible: values.isclicked;
+            text: "Menu";
+            x: + 45px;
+        }
 
         Image {
             source: @image-url("../icons/menu.svg");
+            colorize: Theme.icon-color;
             width: 16px;
             height: 18px;
             x: 12px;
@@ -57,8 +74,8 @@ component sidebar-layout inherits VerticalLayout {
                 values.isclicked = false
             } else {
                 values.vl-width = 160px;
-                values.side-button-radius = 5px;
-                values.side-button-width = 2px;
+                values.side-button-radius = 20px;
+                values.side-button-width = 1px;
                 values.isclicked = true
             }
         }
@@ -73,6 +90,7 @@ component sidebar-layout inherits VerticalLayout {
 
         Image {
             source: @image-url("../icons/home.png");
+            colorize: Theme.icon-color;
             width: 18px;
             height: 18px;
             x: 11px;
@@ -98,6 +116,7 @@ component sidebar-layout inherits VerticalLayout {
 
         Image {
             source: @image-url("../icons/cpu.png");
+            colorize: Theme.icon-color;
             width: 18px;
             height: 18px;
             x: 11px;
@@ -123,6 +142,7 @@ component sidebar-layout inherits VerticalLayout {
 
         Image {
             source: @image-url("../icons/logs.png");
+            colorize: Theme.icon-color;
             width: 19px;
             height: 19px;
             x: 11px;
@@ -148,6 +168,7 @@ component sidebar-layout inherits VerticalLayout {
 
         Image {
             source: @image-url("../icons/config.png");
+            colorize: Theme.icon-color;
             width: 18px;
             height: 18px;
             x: 11px;
@@ -165,20 +186,222 @@ component sidebar-layout inherits VerticalLayout {
     }
 }
 
+component other-sidebar-buttons inherits VerticalLayout {
+    spacing: 5px;
+    width: values.vl-width;
+    alignment: end;
+    max-height: 30px;
+    y: - 7px;
+    animate width {
+        duration: 300ms;
+        easing: ease-out-back;
+    }
+    sidebreak {
+        Text {
+            text: "Main Client Options";
+        }
+    }
+
+    sidebutton {
+        Text {
+            visible: values.isclicked;
+            text: "Start All Clients";
+            x: + 45px;
+        }
+
+        Image {
+            source: @image-url("../icons/start.png");
+            colorize: Theme.icon-color;
+            width: 19px;
+            height: 19px;
+            x: 11px;
+        }
+
+        clicked => {
+            if (values.isclicked) {
+                values.vl-width = 40px;
+                values.side-button-radius = 20px;
+                values.side-button-width = 3px;
+                values.isclicked = false;
+            }
+        }
+    }
+
+    sidebutton {
+        Text {
+            visible: values.isclicked;
+            text: "Stop All Clients";
+            x: + 45px;
+        }
+Image {
+            source: @image-url("../icons/stop.png");
+            colorize: Theme.icon-color;
+            width: 25px;
+            height: 25px;
+            x: 8px;
+        }
+        clicked => {
+            if (values.isclicked) {
+                values.vl-width = 40px;
+                values.side-button-radius = 20px;
+                values.side-button-width = 3px;
+                values.isclicked = false;
+            }
+        }
+    }
+
+    sidebutton {
+        Text {
+            visible: values.isclicked;
+            text: "Quit All Clients";
+            x: + 45px;
+        }
+Image {
+            source: @image-url("../icons/quit.png");
+            colorize: Theme.icon-color;
+            width: 19px;
+            height: 19px;
+            x: 11px;
+        }
+        clicked => {
+            if (values.isclicked) {
+                values.vl-width = 40px;
+                values.side-button-radius = 20px;
+                values.side-button-width = 3px;
+                values.isclicked = false;
+            }
+        }
+    }
+
+    sidebutton {
+        Text {
+            visible: values.isclicked;
+            text: "Pause All Clients";
+            x: + 45px;
+        }
+Image {
+            source: @image-url("../icons/pause.png");
+            colorize: Theme.icon-color;
+            width: 19px;
+            height: 19px;
+            x: 11px;
+        }
+        clicked => {
+            if (values.isclicked) {
+                values.vl-width = 40px;
+                values.side-button-radius = 20px;
+                values.side-button-width = 3px;
+                values.isclicked = false;
+            }
+        }
+    }
+
+    sidebutton {
+        Text {
+            visible: values.isclicked;
+            text: "Resume All Clients";
+            x: + 45px;
+        }
+Image {
+            source: @image-url("../icons/resume.png");
+            colorize: Theme.icon-color;
+            width: 19px;
+            height: 19px;
+            x: 11px;
+        }
+        clicked => {
+            if (values.isclicked) {
+                values.vl-width = 40px;
+                values.side-button-radius = 20px;
+                values.side-button-width = 3px;
+                values.isclicked = false;
+            }
+        }
+    }
+
+    sidebreak {
+        Text {
+            text: "Update Options";
+        }
+    }
+
+    sidebutton {
+        Text {
+            visible: values.isclicked;
+            text: "Update Sheepit";
+            x: + 45px;
+        }
+
+        Image {
+            source: @image-url("../icons/update.png");
+            colorize: Theme.icon-color;
+            width: 18px;
+            height: 18px;
+            x: 11px;
+        }
+
+        clicked => {
+            if (values.isclicked) {
+                values.vl-width = 40px;
+                values.side-button-radius = 20px;
+                values.side-button-width = 3px;
+                values.isclicked = false;
+            }
+        }
+    }
+
+    sidebutton {
+        Text {
+            visible: values.isclicked;
+            text: "Update Manager";
+            x: + 45px;
+        }
+
+        Image {
+            source: @image-url("../icons/update.png");
+            colorize: Theme.icon-color;
+            width: 18px;
+            height: 18px;
+            x: 11px;
+        }
+
+        clicked => {
+            if (values.isclicked) {
+                values.vl-width = 40px;
+                values.side-button-radius = 20px;
+                values.side-button-width = 3px;
+                values.isclicked = false;
+            }
+        }
+    }
+}
+
 export component Sidebar inherits Rectangle {
     background: #222222;
     sidebar-layout { }
+
+    other-sidebar-buttons {
+        visible: values.isclicked;
+    }
 
     width: values.vl-width + 10px;
     border-radius: values.side-button-radius + 10px;
     border-color: #303030;
     border-width: 1px;
+    height: 235px;
     animate width {
         duration: 300ms;
         easing: ease-out-back;
     }
+    animate height { duration: 100ms; }
     animate border-radius {
         duration: 300ms;
         easing: ease-out-back;
     }
+    states [
+        pressed when values.isclicked: {
+            border-radius: 20px;
+            height: 675px;
+        }
+    ]
 }
