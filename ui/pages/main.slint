@@ -20,12 +20,12 @@ component DeviceLayout inherits VerticalLayout {
     }
 
     DeviceWidget {
-        background: #2e2e2e;
+        //background: #2e2e2e;
         Image {
             source: @image-url("../icons/cpu.png");
             colorize: Theme.icon-color;
-            width: 16px;
-            height: 18px;
+            width: 20px;
+            height: 20px;
             x: 12px;
         }
 
@@ -56,12 +56,11 @@ component DeviceLayout inherits VerticalLayout {
     }
 
     DeviceWidget {
-        background: #00ff00b2;
         Image {
             source: @image-url("../icons/gpu.png");
-            colorize: Theme.icon-color;
-            width: 16px;
-            height: 18px;
+            colorize: #00ff00;
+            width: 20px;
+            height: 20px;
             x: 12px;
         }
 
@@ -92,12 +91,11 @@ component DeviceLayout inherits VerticalLayout {
     }
 
     DeviceWidget {
-        background: #eeff00a6;
         Image {
             source: @image-url("../icons/gpu.png");
-            colorize: Theme.icon-color;
-            width: 16px;
-            height: 18px;
+            colorize: #eeff00;
+            width: 20px;
+            height: 20px;
             x: 12px;
         }
 
@@ -138,12 +136,11 @@ component DeviceLayout inherits VerticalLayout {
     }
 
     DeviceWidget {
-        background: #2e2e2e;
         Image {
             source: @image-url("../icons/cpu.png");
             colorize: Theme.icon-color;
-            width: 16px;
-            height: 18px;
+            width: 20px;
+            height: 20px;
             x: 12px;
         }
 
@@ -175,12 +172,11 @@ component DeviceLayout inherits VerticalLayout {
     }
 
     DeviceWidget {
-        background: #00ff00b2;
         Image {
             source: @image-url("../icons/gpu.png");
-            colorize: Theme.icon-color;
-            width: 16px;
-            height: 18px;
+            colorize: #00ff00;
+            width: 20px;
+            height: 20px;
             x: 12px;
         }
 
@@ -211,12 +207,11 @@ component DeviceLayout inherits VerticalLayout {
     }
 
     DeviceWidget {
-        background: #00ff00b2;
         Image {
             source: @image-url("../icons/gpu.png");
-            colorize: Theme.icon-color;
-            width: 16px;
-            height: 18px;
+            colorize: #ff9100;
+            width: 20px;
+            height: 20px;
             x: 12px;
         }
 
@@ -251,29 +246,14 @@ component DeviceLayout inherits VerticalLayout {
         Image {
             source: @image-url("../icons/gpu.png");
             colorize: Theme.icon-color;
-            width: 16px;
-            height: 18px;
+            width: 20px;
+            height: 20px;
             x: 12px;
         }
 
         Text {
-            text: "Points: 0";
+            text: "Client Blocked. Reason: Unknown";
             x: 75px;
-        }
-
-        Text {
-            text: "Project: None";
-            x: 180px;
-        }
-
-        Text {
-            text: "0%";
-            x: 310px;
-        }
-
-        Text {
-            text: "ETA: None";
-            x: 340px;
         }
 
         Text {
@@ -285,7 +265,7 @@ component DeviceLayout inherits VerticalLayout {
 
 component Stats-text inherits Text {
     x: 15px;
-    font-size: 15px;
+    font-size: 17px;
 }
 
 component StatsWidget inherits Rectangle {
@@ -294,6 +274,9 @@ component StatsWidget inherits Rectangle {
     property <string> Total-frames: "70,403";
     property <string> Total-download: "420GB";
     property <string> Total-upload: "69GB";
+    property <string> Frames-Left: "930,234,312";
+    property <string> Current-Sheepit-Version: "7.25091.0";
+    property <string> Current-Manager-Version: "0.2.0";
     background: #1a1919;
     height: 230px;
     border-radius: 15px;
@@ -315,6 +298,7 @@ component StatsWidget inherits Rectangle {
     VerticalLayout {
         y: 10px;
         alignment: start;
+        
         spacing: 2px;
         Stats-text {
             text: "Time Elapsed: \{Time-elapsed}";
@@ -334,6 +318,15 @@ component StatsWidget inherits Rectangle {
 
         Stats-text {
             text: "Total Upload: \{Total-upload}";
+        }
+        Stats-text {
+            text: "Frames Left On Sheepit: \{Frames-Left}";
+        }
+        Stats-text {
+            text: "Total Upload: \{Current-Sheepit-Version}";
+        }
+        Stats-text {
+            text: "Total Upload: \{Current-Manager-Version}";
         }
     }
 }
