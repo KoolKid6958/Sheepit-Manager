@@ -21,4 +21,4 @@ To test it:
 - Linux
 - Windows
 ## Platforms that should work but I cant test
-- Macos - You will have to build this yourself
+- Macos - Note that you will have to build this yourself
