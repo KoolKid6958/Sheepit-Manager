@@ -1,0 +1,53 @@
+import { Devices } from "pages/devices.slint";
+import { Main } from "pages/main.slint";
+import { Logs } from "pages/logs.slint";
+import { Config } from "pages/config.slint";
+import { Sidebar} from "blocks/sidebar.slint";
+import { values } from "blocks/values.slint";
+import { Theme } from "blocks/themes.slint";
+import "./fonts/NotoSans-Regular.ttf";
+
+
+export component MainWindow inherits Window {
+    callback cpus();
+    icon: @image-url("icons/Sheepit.png");
+    title: "Sheepit Manager";
+    background: Theme.background-color;
+    preferred-height: 700px;
+    preferred-width: 450px;
+    min-height: 300px;
+    min-width: 450px;
+    default-font-family: "Noto Sans";
+    TouchArea {
+        clicked => {
+            values.vl-width = 40px;
+            values.side-button-radius = 20px;
+            values.side-button-width = 4px;
+            values.isclicked = false;
+            values.main-window-height = root.height;
+        }
+    }
+
+    Main {
+        visible: values.activepage == 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    Devices {
+        visible: values.activepage == 1;
+    }
+
+    Logs {
+        visible: values.activepage == 2;
+    }
+
+    Config {
+        visible: values.activepage == 3;
+    }
+
+    Sidebar {
+        x: 10px;
+        y: 10px;
+    }
+}

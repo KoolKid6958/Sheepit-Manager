@@ -1,0 +1,57 @@
+export global Theme {
+    property <int> theme: 0; //0 dark (default), 1 light, 2 sheepit
+    
+    //background
+    property <color> light-background: #e2e2e2;
+    property <color> sheepit-background:#1d1d1d;
+    property <color> dark-background: #1d1d1d;
+    //border color
+    property <color> light-border: #e2e2e2;
+    property <color> sheepit-border:#1d1d1d;
+    property <color> dark-border: #494949;
+    //icon color
+    property <color> light-icon: #000000;
+    property <color> sheepit-icon:#1d1d1d;
+    property <color> dark-icon: #ffffff;
+    //text color
+    property <color> light-text: #e2e2e2;
+    property <color> sheepit-text:#1d1d1d;
+    property <color> dark-text: #1d1d1d;
+    //properties
+    in-out property <color> background-color: {
+        if (theme == 1) {
+            light-background
+        } else if (theme == 2) {
+            sheepit-background
+        } else {
+            dark-background
+        }
+    }
+    in-out property <color> border-color: {
+        if (theme == 1) {
+            light-border
+        } else if (theme == 2) {
+            sheepit-border
+        } else {
+            dark-border
+        }
+    }
+    in-out property <color> icon-color: {
+        if (theme == 1) {
+            light-icon
+        } else if (theme == 2) {
+            sheepit-icon
+        } else {
+            dark-icon
+        }
+    }
+    in-out property <color> text-color: {
+        if (theme == 1) {
+            light-border
+        } else if (theme == 2) {
+            sheepit-border
+        } else {
+            dark-border
+        }
+    }
+}

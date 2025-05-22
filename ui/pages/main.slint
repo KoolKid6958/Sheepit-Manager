@@ -1,0 +1,173 @@
+import { Theme } from "../blocks/themes.slint";
+import { ListView } from "std-widgets.slint";
+
+export struct Clients {
+    device: string,
+    points: string,
+    project: string,
+    percent: string}
+
+component DeviceWidget inherits Rectangle {
+    background: Theme.background-color;
+    height: 40px;
+    border-color: Theme.border-color;
+    border-radius: 20px;
+    border-width: 2px;
+    in property <[Clients]> Clients;
+    Image {
+        source: @image-url("../icons/cpu.svg");
+        colorize: Theme.icon-color;
+        width: 25px;
+        height: 25px;
+        x: 10px;
+    }
+
+    ListView {
+        for entry in root.Clients: Rectangle {
+            Text {
+                text: "5800x";
+                x: 35px;
+            }
+
+            Text {
+                text: "Points: 0";
+                x: 86px;
+            }
+
+            Text {
+                text: "Project: None";
+                x: 186px;
+            }
+
+            Text {
+                text: "0%";
+                x: 310px;
+            }
+
+            Text {
+                text: "ETA: None";
+                x: 333px;
+            }
+        }
+    }
+
+    Image {
+        source: @image-url("../icons/block.svg");
+        colorize: Theme.icon-color;
+        width: 20px;
+        height: 20px;
+        x: 396px;
+    }
+}
+
+component DeviceLayout inherits VerticalLayout {
+    y: 255px;
+    spacing: 5px;
+    Rectangle {
+        height: 25px;
+        border-radius: 12px;
+        width: 90px;
+        background: Theme.background-color;
+        border-color: Theme.border-color;
+        border-width: 2px;
+        Text {
+            text: "Local Clients";
+        }
+    }
+
+    DeviceWidget { }
+
+    Rectangle {
+        height: 25px;
+        border-radius: 12px;
+        width: 110px;
+        background: Theme.background-color;
+        border-color: Theme.border-color;
+        border-width: 2px;
+        Text {
+            text: "Network Clients";
+        }
+    }
+}
+
+component Stats-text inherits Text {
+    x: 15px;
+    font-size: 17px;
+}
+
+component StatsWidget inherits Rectangle {
+    property <string> Time-elapsed: "50 years";
+    property <string> Total-points: "92,157,643";
+    property <string> Total-frames: "70,403";
+    property <string> Total-download: "420GB";
+    property <string> Total-upload: "69GB";
+    property <string> Frames-Left: "930,234,312";
+    property <string> Current-Sheepit-Version: "7.25091.0";
+    property <string> Current-Manager-Version: "0.2.0";
+    background: #1a1919;
+    height: 230px;
+    border-radius: 15px;
+    border-color: #4d4d4d;
+    border-width: 2px;
+    Rectangle {
+        x: 0px + parent.width - self.width - 10px;
+        y: 10px;
+        border-color: #414141;
+        width: 90px;
+        height: 25px;
+        border-width: 2px;
+        border-radius: 5px;
+        Text {
+            text: "General Info";
+        }
+    }
+
+    VerticalLayout {
+        y: 10px;
+        alignment: start;
+        spacing: 2px;
+        Stats-text {
+            text: "Time Elapsed: \{Time-elapsed}";
+        }
+
+        Stats-text {
+            text: "Total Points: \{Total-points}";
+        }
+
+        Stats-text {
+            text: "Total Frames: \{Total-frames}";
+        }
+
+        Stats-text {
+            text: "Total Download: \{Total-download}";
+        }
+
+        Stats-text {
+            text: "Total Upload: \{Total-upload}";
+        }
+
+        Stats-text {
+            text: "Frames Left On Sheepit: \{Frames-Left}";
+        }
+
+        Stats-text {
+            text: "Sheepit Version: \{Current-Sheepit-Version}";
+        }
+
+        Stats-text {
+            text: "Manager Version: \{Current-Manager-Version}";
+        }
+    }
+}
+
+export component Main {
+    DeviceLayout {
+        width: root.width - 20px;
+    }
+
+    StatsWidget {
+        x: 70px;
+        y: 15px;
+        width: root.width - 81px;
+    }
+}
