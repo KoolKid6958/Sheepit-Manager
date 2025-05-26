@@ -1,6 +1,5 @@
 import { Theme } from "../blocks/themes.slint";
 import { ListView } from "std-widgets.slint";
-
 export struct Clients {
     device: string,
     points: string,
@@ -162,7 +161,8 @@ component StatsWidget inherits Rectangle {
 
 export component Main {
     DeviceLayout {
-        width: root.width - 20px;
+        padding-left: 10px;
+        padding-right: 10px;
     }
 
     StatsWidget {
