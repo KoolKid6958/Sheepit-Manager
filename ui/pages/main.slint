@@ -1,5 +1,4 @@
 import { Theme } from "../blocks/themes.slint";
-import { ListView } from "std-widgets.slint";
 import { values } from "../blocks/values.slint";
 export struct Clients {
     device: string,
@@ -22,34 +21,6 @@ component DeviceWidget inherits Rectangle {
         x: 10px;
     }
 
-    ListView {
-        for entry in root.Clients: Rectangle {
-            Text {
-                text: "5800x";
-                x: 35px;
-            }
-
-            Text {
-                text: "Points: 0";
-                x: 86px;
-            }
-
-            Text {
-                text: "Project: None";
-                x: 186px;
-            }
-
-            Text {
-                text: "0%";
-                x: 310px;
-            }
-
-            Text {
-                text: "ETA: None";
-                x: 333px;
-            }
-        }
-    }
 
     Image {
         source: @image-url("../icons/block.svg");
