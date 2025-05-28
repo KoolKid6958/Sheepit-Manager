@@ -1,5 +1,6 @@
 import { Theme } from "../blocks/themes.slint";
 import { ListView } from "std-widgets.slint";
+import { values } from "../blocks/values.slint";
 export struct Clients {
     device: string,
     points: string,
@@ -95,14 +96,6 @@ component Stats-text inherits Text {
 }
 
 component StatsWidget inherits Rectangle {
-    property <string> Time-elapsed: "50 years";
-    property <string> Total-points: "92,157,643";
-    property <string> Total-frames: "70,403";
-    property <string> Total-download: "420GB";
-    property <string> Total-upload: "69GB";
-    property <string> Frames-Left: "930,234,312";
-    property <string> Current-Sheepit-Version: "7.25091.0";
-    property <string> Current-Manager-Version: "0.2.0";
     background: #1a1919;
     height: 230px;
     border-radius: 15px;
@@ -126,35 +119,35 @@ component StatsWidget inherits Rectangle {
         alignment: start;
         spacing: 2px;
         Stats-text {
-            text: "Time Elapsed: \{Time-elapsed}";
+            text: "Time Elapsed: \{values.time_elapsed}";
         }
 
         Stats-text {
-            text: "Total Points: \{Total-points}";
+            text: "Total Points: \{values.total_points}";
         }
 
         Stats-text {
-            text: "Total Frames: \{Total-frames}";
+            text: "Total Frames: \{values.total_frames}";
         }
 
         Stats-text {
-            text: "Total Download: \{Total-download}";
+            text: "Total Download: \{values.total_download}";
         }
 
         Stats-text {
-            text: "Total Upload: \{Total-upload}";
+            text: "Total Upload: \{values.total_upload}";
         }
 
         Stats-text {
-            text: "Frames Left On Sheepit: \{Frames-Left}";
+            text: "Frames Left On Sheepit: \{values.frames_left}";
         }
 
         Stats-text {
-            text: "Sheepit Version: \{Current-Sheepit-Version}";
+            text: "Sheepit Version: \{values.sheepit_version}";
         }
 
         Stats-text {
-            text: "Manager Version: \{Current-Manager-Version}";
+            text: "Manager Version: \{values.manager_version}";
         }
     }
 }

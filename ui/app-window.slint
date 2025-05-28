@@ -3,13 +3,12 @@ import { Main } from "pages/main.slint";
 import { Logs } from "pages/logs.slint";
 import { Config } from "pages/config.slint";
 import { Sidebar} from "blocks/sidebar.slint";
-import { values } from "blocks/values.slint";
 import { Theme } from "blocks/themes.slint";
+import { values} from "blocks/values.slint";
 import "./fonts/NotoSans-Regular.ttf";
-
+export { values }
 
 export component MainWindow inherits Window {
-    callback cpus();
     icon: @image-url("icons/Sheepit.png");
     title: "Sheepit Manager";
     background: Theme.background-color;
@@ -17,7 +16,6 @@ export component MainWindow inherits Window {
     preferred-width: 450px;
     min-height: 300px;
     min-width: 450px;
-    default-font-family: "Noto Sans";
     TouchArea {
         clicked => {
             values.vl-width = 40px;
