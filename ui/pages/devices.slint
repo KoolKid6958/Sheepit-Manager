@@ -1,6 +1,375 @@
+import { values } from "../blocks/values.slint";
+import { Theme } from "../blocks/themes.slint";
+import { CheckBox, Slider, SpinBox, TextEdit } from "std-widgets.slint"; //Need to replace with custom one
+component sidebutton inherits TouchArea {
+    button := Rectangle {
+        min-height: 15px;
+        preferred-height: 40px;
+        background: #252525;
+        border-width: values.side-button-width;
+        border-color: #494949;
+        border-radius: values.side-button-radius;
+        animate background { duration: 50ms; }
+        animate border-radius {
+            duration: 300ms;
+            easing: ease-out-back;
+        }
+        animate border-width {
+            duration: 300ms;
+            easing: ease-out-back;
+        }
+    }
+
+    states [
+        pressed when root.pressed: {
+            button.background: #3b3b3b;
+        }
+        hover when root.has-hover: {
+            button.background: #2b2b2b;
+        }
+    ]
+}
+
+component sidebar-layout inherits VerticalLayout {
+    spacing: 5px;
+    width: 40px;
+    alignment: start;
+    max-height: 30px;
+    y: + 7px;
+    animate width {
+        duration: 300ms;
+        easing: ease-out-back;
+    }
+    // Menu button
+    sidebutton {
+        Text {
+            visible: values.isclicked;
+            text: "Menu";
+            x: + 45px;
+        }
+
+        Image {
+            source: @image-url("../icons/menu.svg");
+            colorize: Theme.icon-color;
+            width: 25px;
+            height: 25px;
+            x: 8px;
+        }
+
+        clicked => {
+        }
+    }
+
+    sidebutton {
+        Text {
+            visible: values.isclicked;
+            text: "Menu";
+            x: + 45px;
+        }
+
+        Image {
+            source: @image-url("../icons/cpu.svg");
+            colorize: Theme.icon-color;
+            width: 25px;
+            height: 25px;
+            x: 8px;
+        }
+
+        clicked => {
+        }
+    }
+
+    sidebutton {
+        Text {
+            visible: values.isclicked;
+            text: "Menu";
+            x: + 45px;
+        }
+
+        Image {
+            source: @image-url("../icons/gpu.svg");
+            colorize: Theme.icon-color;
+            width: 25px;
+            height: 25px;
+            x: 8px;
+        }
+
+        clicked => {
+        }
+    }
+
+    sidebutton {
+        Text {
+            visible: values.isclicked;
+            text: "Menu";
+            x: + 45px;
+        }
+
+        Image {
+            source: @image-url("../icons/gpu.svg");
+            colorize: Theme.icon-color;
+            width: 25px;
+            height: 25px;
+            x: 8px;
+        }
+
+        clicked => {
+        }
+    }
+}
+
+component Sidebar inherits Rectangle {
+    background: #222222;
+    sidebar-layout { }
+
+    width: values.vl-width + 10px;
+    border-radius: values.side-button-radius + 10px;
+    border-color: #303030;
+    border-width: 1px;
+    height: 190px;
+    animate width {
+        duration: 300ms;
+        easing: ease-out-back;
+    }
+    animate height { duration: 100ms; }
+    animate border-radius {
+        duration: 300ms;
+        easing: ease-out-back;
+    }
+    states [
+        pressed when values.isclicked: {
+            border-radius: 20px;
+            height: 675px;
+        }
+    ]
+}
+
+component checkboxes {
+    GridLayout {
+        y: +10px;
+        spacing: 15px;
+        x: +20px;
+        Row {
+            CheckBox {
+                text: "Auto Restart";
+            }
+
+            CheckBox {
+                text: "Start Automatically";
+            }
+        }
+
+        Row {
+            CheckBox {
+                text: "Verbose";
+            }
+
+            CheckBox {
+                text: "Disable Large Downloads";
+            }
+        }
+
+        Row {
+            CheckBox {
+                text: "Run on sandbox";
+            }
+
+            CheckBox {
+                text: "Headless (Block Eevee)";
+            }
+        }
+    }
+}
+
+component Text_Fields {
+    GridLayout {
+        y: + 410px;
+        spacing: 15px;
+        x: +20px;
+        TextEdit {
+            font-size: 14px;
+            text: "Lorem ipsum dolor sit amet,\n consectetur adipisici elit";
+        }
+    }
+}
+
+component Sliders {
+    GridLayout { // this entire thing is a dumpster fire but I dont feel like fixing it rn
+        y: + 110px;
+        spacing: 15px;
+        x: +20px;
+        Row {
+            property <int> Cores;
+            Slider {
+                value: Cores;
+                changed(value) => {
+                    Cores = value;
+                }
+            }
+
+            Text {
+                text: "Cores";
+            }
+
+            SpinBox {
+                value: Cores;
+                edited(value) => {
+                    Cores = value;
+                }
+            }
+        }
+
+        Row {
+            property <int> Cores;
+            Slider {
+                value: Cores;
+                changed(value) => {
+                    Cores = value;
+                }
+            }
+
+            Text {
+                text: "Ram (GB)";
+            }
+
+            SpinBox {
+                value: Cores;
+                edited(value) => {
+                    Cores = value;
+                }
+            }
+        }
+
+        Row {
+            property <int> Cores;
+            Slider {
+                value: Cores;
+                changed(value) => {
+                    Cores = value;
+                }
+            }
+
+            Text {
+                text: "Priority";
+            }
+
+            SpinBox {
+                value: Cores;
+                edited(value) => {
+                    Cores = value;
+                }
+            }
+        }
+
+        Row {
+            property <int> Cores;
+            Slider {
+                value: Cores;
+                changed(value) => {
+                    Cores = value;
+                }
+            }
+
+            Text {
+                text: "Max rendertime (Min)";
+            }
+
+            SpinBox {
+                value: Cores;
+                edited(value) => {
+                    Cores = value;
+                }
+            }
+        }
+    }
+}
+
+component Device_Settings {
+    Rectangle {
+        background: #1a1919;
+        border-radius: 25px;
+        border-color: #4d4d4d;
+        border-width: 2px;
+    }
+
+    VerticalLayout {
+        y: + 12px;
+        Rectangle {
+            height: 40px;
+            Rectangle {
+                x: + 10px;
+                border-color: #414141;
+                width: 260px;
+                height: 40px;
+                border-width: 2px;
+                border-radius: 30px;
+                Image {
+                    source: @image-url("../icons/cpu.svg");
+                    colorize: Theme.icon-color;
+                    width: 20px;
+                    height: 20px;
+                    x: - self.width + self.width + 10px;
+                }
+
+                Device := Text {
+                    text: "(ryzen7-5800x-a) AMD Ryzen 7 5800X";
+                    x: + 40px;
+                    y: (self.height / self.height) * 1px + 10px;
+                }
+            }
+
+            Rectangle {
+                x: + 320px;
+                border-color: #414141;
+                width: 40px;
+                height: 40px;
+                border-width: 2px;
+                border-radius: 30px;
+                Image {
+                    source: @image-url("../icons/save.svg");
+                    colorize: Theme.icon-color;
+                    width: 20px;
+                    height: 20px;
+                    x: - self.width + self.width + 10px;
+                }
+            }
+
+            Rectangle {
+                x: + 275px;
+                border-color: #414141;
+                width: 40px;
+                height: 40px;
+                border-width: 2px;
+                border-radius: 30px;
+                Image {
+                    source: @image-url("../icons/load.svg");
+                    colorize: Theme.icon-color;
+                    width: 20px;
+                    height: 20px;
+                    x: - self.width + self.width + 10px;
+                }
+            }
+        }
+
+        alignment: start;
+        checkboxes { }
+
+        Sliders { }
+
+        Text_Fields { }
+    }
+}
 
 export component Devices {
-    Text {
-        text: "Devices";
-    }    
+    Sidebar {
+        x: 10px;
+        y: 250px;
+    }
+
+    Device-Settings {
+        width: root.width - 80px;
+        height: root.height - 20px;
+        x: 70px;
+        y: 10px;
+    }
 }

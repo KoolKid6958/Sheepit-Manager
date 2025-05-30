@@ -20,7 +20,7 @@ export component MainWindow inherits Window {
         clicked => {
             values.vl-width = 40px;
             values.side-button-radius = 20px;
-            values.side-button-width = 4px;
+            values.side-button-width = 3px;
             values.isclicked = false;
             values.main-window-height = root.height;
         }
@@ -34,14 +34,20 @@ export component MainWindow inherits Window {
 
     Devices {
         visible: values.activepage == 1;
+        width: 100%;
+        height: 100%;
     }
 
     Logs {
         visible: values.activepage == 2;
+        width: 100%;
+        height: 100%;
     }
 
     Config {
         visible: values.activepage == 3;
+        width: 100%;
+        height: 100%;
     }
 
     Sidebar {
