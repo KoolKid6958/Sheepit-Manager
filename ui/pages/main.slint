@@ -21,30 +21,101 @@ component DeviceWidget inherits Rectangle {
         x: 10px;
     }
 
+    Image {
+        source: @image-url("../icons/start.svg");
+        colorize: Theme.icon-color;
+        width: 20px;
+        height: 20px;
+        x: 336px;
+    }
 
     Image {
         source: @image-url("../icons/block.svg");
         colorize: Theme.icon-color;
         width: 20px;
         height: 20px;
-        x: 396px;
+        x: 357px;
+    }
+
+    Image {
+        source: @image-url("../icons/resume.svg");
+        colorize: Theme.icon-color;
+        width: 25px;
+        height: 25px;
+        x: 374px;
+    }
+
+    Image {
+        source: @image-url("../icons/pause.svg");
+        colorize: Theme.icon-color;
+        width: 25px;
+        height: 25px;
+        x: 395px;
+    }
+}
+
+component Device_Header inherits Rectangle {
+    height: 25px;
+    Rectangle {
+        height: 25px;
+        border-radius: 12px;
+        width: txt.width + 20px;
+        background: Theme.background-color;
+        border-color: Theme.border-color;
+        border-width: 2px;
+        x: 0;
+        txt := Text {
+            text: "ryzen7-5800x-a";
+        }
+    }
+
+    Rectangle {
+        height: 25px;
+        border-radius: 12px;
+        width: 260px;
+        background: Theme.background-color;
+        border-color: Theme.border-color;
+        border-width: 2px;
+        x: (root.width / 2) - self.width / 2 + 35px;
+        Text {
+            text: "Points: 12,435,312  Frames: 14,453";
+        }
+    }
+
+    ta := TouchArea {
+        x: root.width - 35px;
+        width: rect.width;
+        rect := Rectangle {
+            
+            width: 25px;
+            height: 25px;
+            border-radius: 12px;
+            background: Theme.background-color;
+            border-color: Theme.border-color;
+            border-width: 2px;
+            animate width { duration: 100ms; }
+        }
+
+        Image {
+            source: @image-url("../icons/start.svg");
+            colorize: Theme.icon-color;
+            width: 18px;
+            height: 18px;
+        
+        }
+
+        states [
+            hover when ta.has-hover: {
+                rect.width: 130px;
+            }
+        ]
     }
 }
 
 component DeviceLayout inherits VerticalLayout {
     y: 255px;
     spacing: 5px;
-    Rectangle {
-        height: 25px;
-        border-radius: 12px;
-        width: 90px;
-        background: Theme.background-color;
-        border-color: Theme.border-color;
-        border-width: 2px;
-        Text {
-            text: "Local Clients";
-        }
-    }
+    Device_Header { }
 
     DeviceWidget { }
 
