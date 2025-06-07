@@ -47,5 +47,4 @@ fn main() -> Result<(), slint::PlatformError> {
         slint::CloseRequestResponse::HideWindow
     });
     main_window.run()
-    
 }

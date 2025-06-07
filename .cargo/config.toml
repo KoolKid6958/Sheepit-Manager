@@ -1,0 +1,3 @@
+[alias]
+gui = "run --bin Sheepit-Manager-gui"
+tui = "run --bin Sheepit-Manager-tui"

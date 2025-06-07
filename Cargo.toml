@@ -2,9 +2,20 @@
 name = "Sheepit-Manager"
 version = "0.1.0"
 edition = "2024"
-
+default-run = "Sheepit-Manager-gui"
 [dependencies]
 slint = { version = "1.11.0", features = ["renderer-skia"] }
+ratatui = "0.29.0"
+crossterm = "0.29.0"
+color-eyre = "0.6.3"
 
 [build-dependencies]
 slint-build = "1.11.0"
+
+[[bin]]
+name = "Sheepit-Manager-gui"
+path = "src/gui.rs"
+
+[[bin]]
+name = "Sheepit-Manager-tui"
+path = "src/tui.rs"

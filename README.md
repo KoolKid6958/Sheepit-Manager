@@ -12,10 +12,14 @@ Basically all that this is is a manager for [sheepit](https://sheepit-renderfarm
 Currently this project doesnt have a working version, but you can still checkout the dev version.
 Requirements to test:
 - Rust & Cargo
+
 To test it:
 - Clone this repo
 - Switch to the Dev branch 
-- Build or launch it with `cargo build` or `cargo run` respectively
+- Build them with `cargo build`
+- You can run them with `cargo tui` or `cargo gui` respectively
+
+It can also be run with `-r` for an optimized version.
 
 ## Platforms that will be supported & Tested
 - Linux
