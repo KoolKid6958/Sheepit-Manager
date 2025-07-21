@@ -1,6 +1,7 @@
 import { values } from "../blocks/values.slint";
 import { Theme } from "../blocks/themes.slint";
 import { CheckBox, Slider, SpinBox, TextEdit } from "std-widgets.slint"; //Need to replace with custom one
+import { Textf } from "../blocks.slint";
 
 component sidebutton inherits TouchArea {
     button := Rectangle {
@@ -43,7 +44,7 @@ component sidebar-layout inherits VerticalLayout {
     }
 
     sidebutton {
-        Text {
+        Textf {
             visible: values.isclicked;
             text: "Menu";
             x: + 45px;
@@ -62,7 +63,7 @@ component sidebar-layout inherits VerticalLayout {
     }
 
     sidebutton {
-        Text {
+        Textf {
             visible: values.isclicked;
             text: "Menu";
             x: + 45px;
@@ -81,7 +82,7 @@ component sidebar-layout inherits VerticalLayout {
     }
 
     sidebutton {
-        Text {
+        Textf {
             visible: values.isclicked;
             text: "Menu";
             x: + 45px;
@@ -189,7 +190,7 @@ component Sliders {
                 }
             }
 
-            Text {
+            Textf {
                 text: "Cores";
             }
 
@@ -210,7 +211,7 @@ component Sliders {
                 }
             }
 
-            Text {
+            Textf {
                 text: "Ram (GB)";
             }
 
@@ -231,7 +232,7 @@ component Sliders {
                 }
             }
 
-            Text {
+            Textf {
                 text: "Priority";
             }
 
@@ -252,7 +253,7 @@ component Sliders {
                 }
             }
 
-            Text {
+            Textf {
                 text: "Max rendertime (Min)";
             }
 
