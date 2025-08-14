@@ -1,5 +1,6 @@
 import { values } from "values.slint";
 import { Theme } from "themes.slint";
+import { Textf } from "../blocks.slint";
 
 component sidebutton inherits TouchArea {
     button := Rectangle {
@@ -52,7 +53,7 @@ component sidebar-layout inherits VerticalLayout {
     }
     // Menu button
     sidebutton {
-        Text {
+        Textf {
             visible: values.isclicked;
             text: "Menu";
             x: + 45px;
@@ -82,7 +83,7 @@ component sidebar-layout inherits VerticalLayout {
     }
     // Main button
     sidebutton {
-        Text {
+        Textf {
             visible: values.isclicked;
             text: "Main";
             x: + 45px;
@@ -108,7 +109,7 @@ component sidebar-layout inherits VerticalLayout {
     }
     // Devices button
     sidebutton {
-        Text {
+        Textf {
             visible: values.isclicked;
             text: "Devices";
             x: + 45px;
@@ -134,7 +135,7 @@ component sidebar-layout inherits VerticalLayout {
     }
     // Logs button
     sidebutton {
-        Text {
+        Textf {
             visible: values.isclicked;
             text: "Logs";
             x: + 45px;
@@ -160,7 +161,7 @@ component sidebar-layout inherits VerticalLayout {
     }
     // config button
     sidebutton {
-        Text {
+        Textf {
             visible: values.isclicked;
             text: "Config";
             x: + 45px;
@@ -197,13 +198,13 @@ component other-sidebar-buttons inherits VerticalLayout {
         easing: ease-out-back;
     }
     sidebreak {
-        Text {
+        Textf {
             text: "Main Client Options";
         }
     }
 
     sidebutton {
-        Text {
+        Textf {
             visible: values.isclicked;
             text: "Start All Clients";
             x: + 45px;
@@ -228,7 +229,7 @@ component other-sidebar-buttons inherits VerticalLayout {
     }
 
     sidebutton {
-        Text {
+        Textf {
             visible: values.isclicked;
             text: "Stop All Clients";
             x: + 45px;
@@ -253,7 +254,7 @@ component other-sidebar-buttons inherits VerticalLayout {
     }
 
     sidebutton {
-        Text {
+        Textf {
             visible: values.isclicked;
             text: "Quit All Clients";
             x: + 45px;
@@ -278,7 +279,7 @@ component other-sidebar-buttons inherits VerticalLayout {
     }
 
     sidebutton {
-        Text {
+        Textf {
             visible: values.isclicked;
             text: "Pause All Clients";
             x: + 45px;
@@ -303,7 +304,7 @@ component other-sidebar-buttons inherits VerticalLayout {
     }
 
     sidebutton {
-        Text {
+        Textf {
             visible: values.isclicked;
             text: "Resume All Clients";
             x: + 45px;
@@ -328,13 +329,13 @@ component other-sidebar-buttons inherits VerticalLayout {
     }
 
     sidebreak {
-        Text {
+        Textf {
             text: "Update Options";
         }
     }
 
     sidebutton {
-        Text {
+        Textf {
             visible: values.isclicked;
             text: "Update Sheepit";
             x: + 45px;
@@ -359,7 +360,7 @@ component other-sidebar-buttons inherits VerticalLayout {
     }
 
     sidebutton {
-        Text {
+        Textf {
             visible: values.isclicked;
             text: "Update Manager";
             x: + 45px;
