@@ -15,7 +15,6 @@ Requirements to test:
 
 To test it:
 - Clone this repo
-- Switch to the Dev branch 
 - Build them with `cargo build`
 - You can run them with `cargo tui` or `cargo gui` respectively
 
