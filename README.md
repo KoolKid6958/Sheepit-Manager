@@ -1,27 +1,34 @@
 # SheepIt Manager
 
-## This is a project im working on to make things easier for myself in sheepit, maybe you'll find it useful too.
-
-### Some Notes:
-This project is still being developed, so if something looks wrong or just outright bad, please let me know :)
+> [!NOTE]
+> This project is still actively being developed.
+>
+> If something looks wrong or just outright bad, please let me know :)
 
 ## What it is
-Basically all that this is is a manager for [sheepit](https://sheepit-renderfarm.com), all it really does is add a gui to the .jar with some extra stuff, like multiple gpus on one interface, auto restarts if the client crashes, discord integration, etc.
+This is a manager for [SheepIt](https://sheepit-renderfarm.com). The goal is to help users manage multiple clients easily, all while having a small footprint on the host. This doesn't actually add any extra features to the SheepIt side of things; it's just a wrapper for the .jar.
+
+## Should you use it?
+This is mainly meant for users with more than 1 active client. It can still be helpful if you only have 1, but the main focus is multiple machines across a network.
+
+## Roadmap
+- [ ] Get a working alpha out with local client control.
+- [ ] Add network functionality
 
 ## Usage
-Currently this project doesnt have a working version, but you can still checkout the dev version.
+Currently, this project doesn't have a working version, but you can still check out the dev version.  
 Requirements to test:
 - Rust & Cargo
 
-To test it:
+To run the dev version:
 - Clone this repo
-- Build them with `cargo build`
-- You can run them with `cargo tui` or `cargo gui` respectively
+- Run either the TUI or GUI with `cargo tui` or `cargo gui`, respectively.
 
-It can also be run with `-r` for an optimized version.
+You can also append `-r` for an optimized version.
 
-## Platforms that will be supported & Tested
+## Platforms that will be supported & tested
 - Linux
 - Windows
-## Platforms that should work but I cant test
-- Macos - Note that you will have to build this yourself
+
+## Platforms that should work but are untested
+- macOS
